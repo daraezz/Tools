@@ -103,7 +103,7 @@ public class Fecha {
         int resultado = 0;
         validarFecha(dato);
         
-        if((anno > annoAhora) || (mes > mesAhora) || (dia > diaAhora)){
+        if ((anno > annoAhora) || (anno == annoAhora && mes > mesAhora) || (anno == annoAhora && mes <= mesAhora && dia >= diaAhora )){
             resultado = -5;
             return resultado;
         }
