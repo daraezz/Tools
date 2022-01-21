@@ -12,6 +12,10 @@ public class Fecha {
     private int dia;
     private int mes;
     private int anno;
+    // Variables creadas para guardar el dia, mes, anno actual si reemplazarlo
+    private int diaAhora;
+    private int mesAhora;
+    private int annoAhora;
 
     // Propiedad compartida cualquier objecto puede modicar cualquier propiedad
     private static int[] diasMes = {31, 28, 31, 30, 31, 30, 31, 31, 39, 31, 30, 31};
@@ -24,6 +28,9 @@ public class Fecha {
         dia = c.get(Calendar.DATE);
         mes = c.get(Calendar.MONTH);
         anno = c.get(Calendar.YEAR);
+        diaAhora  = c.get(Calendar.DATE);
+        mesAhora  = c.get(Calendar.MONTH);
+        annoAhora = c.get(Calendar.YEAR);
 
     }
 
@@ -84,12 +91,24 @@ public class Fecha {
                         }
                     }
                 }
-
+                
             } catch (NumberFormatException Exception) {
                 resultado = -1;
             }
         }
         return resultado;
+    }
+    
+    public int comprobarFechas(String dato){
+        int resultado = 0;
+        validarFecha(dato);
+        
+        if((anno > annoAhora) || (mes > mesAhora) || (dia > diaAhora)){
+            resultado = -5;
+            return resultado;
+        }
+
+        return validarFecha(dato);
     }
 
     /**

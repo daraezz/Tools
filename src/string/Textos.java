@@ -30,7 +30,7 @@ public class Textos {
         String dato;
         dato = pedirString(mensaje);
         
-        while (finIntroducida.validarFecha(dato) != 0){
+        while (finIntroducida.validarFecha(dato) != 0 || finIntroducida.comprobarFechas(dato) !=0){
             System.out.println("Fecha incorrecta, Vuelva a introducirla");
             dato = pedirString(mensaje);
         }
