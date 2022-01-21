@@ -141,14 +141,17 @@ public class Fecha {
     public int calcularSenios(Fecha fechaAlta, int numeroSenios) {
         Fecha fechaHoy = new Fecha();
         int senios;
+        int anno = 1; //Es como un boolean que cuando no se ha cumplido un año mas en la fecha de alta ese año no cuenta
         
         if (fechaHoy.getMes() > fechaAlta.getMes()){
+            anno--;
         }else{
             if(fechaHoy.getMes() == fechaAlta.getMes() && fechaHoy.getDia() >= fechaAlta.getDia()){
+                anno--;
             }
         }
         
-        senios = (fechaHoy.getAnno() - fechaAlta.getAnno()) / numeroSenios;
+        senios = (fechaHoy.getAnno() - fechaAlta.getAnno() - anno) / numeroSenios;
         
         return senios;
     }
